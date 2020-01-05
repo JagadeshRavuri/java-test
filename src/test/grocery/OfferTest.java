@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import static grocery.Item.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class OfferTest {
@@ -16,9 +17,9 @@ public class OfferTest {
     @Test
     public void shouldGiveActualPrice() {
         ShoppingBasket basket = new ShoppingBasket();
-        basket.putItems(Item.MILK, 100);
+        basket.putItems(MILK, 100);
 
-        BigDecimal price = offer.calculatePrice(basket, Item.MILK, LocalDateTime.now());
+        BigDecimal price = offer.calculatePrice(basket, MILK, LocalDateTime.now());
 
         assertThat(BigDecimal.valueOf(130), Matchers.comparesEqualTo(price));
     }
@@ -26,11 +27,11 @@ public class OfferTest {
     @Test
     public void shouldGiveActualPriceForAnyDate() {
         ShoppingBasket basket = new ShoppingBasket();
-        basket.putItems(Item.MILK, 10);
+        basket.putItems(MILK, 10);
 
 
-        BigDecimal futureDatePrice = offer.calculatePrice(basket, Item.MILK, LocalDateTime.now().plusYears(10));
-        BigDecimal pastDatePrice = offer.calculatePrice(basket, Item.MILK, LocalDateTime.now().minusYears(10));
+        BigDecimal futureDatePrice = offer.calculatePrice(basket, MILK, LocalDateTime.now().plusYears(10));
+        BigDecimal pastDatePrice = offer.calculatePrice(basket, MILK, LocalDateTime.now().minusYears(10));
 
         assertThat(futureDatePrice, Matchers.comparesEqualTo(pastDatePrice));
     }

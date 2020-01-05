@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import static grocery.Item.*;
+import static grocery.Item.MILK;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class OfferTest {

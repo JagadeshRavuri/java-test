@@ -5,6 +5,9 @@ import java.math.BigDecimal;
 
 public enum Item {
 
+    SOUP(BigDecimal.valueOf(0.65), new Offer() {
+    }),
+    BREAD(BigDecimal.valueOf(0.8), new BreadOffer()),
     APPLE(BigDecimal.valueOf(0.1), new AppleOffer()),
     MILK(BigDecimal.valueOf(1.3), new Offer() {
     });
